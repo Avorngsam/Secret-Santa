@@ -10,6 +10,9 @@
     href="https://fonts.googleapis.com/css?family=Spicy+Rice&display=swap&family=Karla:400,700|Rubik:400,400i,700&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas&display=swap" rel="stylesheet">
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
@@ -91,10 +94,10 @@
     <div class="navbar-brand">
       <a class="navbar-item" href="">
         <!-- <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28"> -->
-        <span class="material-symbols-outlined has-text-danger-dark icon fas fa-2x">
+        <span class="material-symbols-outlined has-text-danger-dark icon is-large fas fa-2x	">
           featured_seasonal_and_gifts
         </span>
-        <span class="is-size-2 has-text-danger-dark">Secret Santa</span>
+        <span class="navbar-title has-text-danger-dark">Secret Santa</span>
       </a>
 
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -149,13 +152,12 @@
       <h2 class="subtitle has-text-black is-size-4 has-text-centered">Welcome to Secret Santa!</h2>
     </div>
 
-    <section>
-      <div>
+    <section class="container is-flex">
+      <div class="box is-pulled-right">
         <p class="has-text-black is-size-5">Your Groups</p>
         <p class="has-text-black is-size-7" id="display-groups">You currently have no groups</p>
         <a class="button is-success is-light js-modal-trigger" id="create-group" data-target="create-group-modal"> +
           Create New Group </a>
-
       </div>
     </section>
 
@@ -212,7 +214,7 @@
       <span class="level-left mr-1">
         <p>
           <strong>Secret Santa</strong> by <a href="https://github.com/Avorngsam">Angelina Vorngsam</a>+<a
-            href="https://github.com/Avorngsam">Raymond Cheung</a>
+            href="https://github.com/raymond4808">Raymond Cheung</a>
         </p>
         </p>
       </span>

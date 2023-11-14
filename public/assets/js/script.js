@@ -45,6 +45,29 @@ document.querySelector("#group-name-submit").addEventListener("click", async fun
   })
 
 //read data
+//RAYMONDS STARTS HERE
+const q = query(collection(db, "groups")); //raymond submits query for database
+const unsubscribe = onSnapshot(q, (querySnapshot) => {
+    //anytime collection is modified its updated live
+      const groups = []; //raymond make emtpy array
+      document.querySelector("#display-groups").innerHTML = ""
+
+      querySnapshot.forEach((doc) => {
+        //ran per document
+          if(doc.data().owner== currentUser.uid){
+            groups.push(doc.data().displayName);
+            document.querySelector("#display-groups").innerHTML += doc.data().displayName+"<br>"
+          }
+          
+          else{
+            document.querySelector("#display-groups").innerHTML = "You currently have no saved groups"
+          }
+      });
+      console.log("Current groups: ", groups.join(", "));
+
+});
+
+/*
 const q = query(collection(db, "requests"), where("status", "!=", "random"));
 const unsubscribe = onSnapshot(q, (querySnapshot) => {
 
@@ -58,4 +81,4 @@ const unsubscribe = onSnapshot(q, (querySnapshot) => {
     //  });
     //  console.log("Current queries: ", requests.join(", "));
 
-});
+}); */

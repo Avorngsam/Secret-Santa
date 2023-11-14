@@ -31,12 +31,21 @@ body {
   color: var(--primary);
   line-height: 1.5;
   font-size: 16px;
-  background-image: url('../images/christmas-tree-sparkles-red-background.jpg');
+  background-image: url('../images/Christmas-Silhouette-Santa-Claus.jpg');
   background-size: contain;
   background-repeat: no-repeat;
   background-blend-mode: normal;
   background-position: center;
   background-color: rgba(255, 255, 255, 0.65);
+}
+
+.navbar-title {
+  font-family: 'Mountains of Christmas', serif;
+  font-size: 35px;
+}
+
+footer {
+  background-color: white;
 }
 
 h1,
