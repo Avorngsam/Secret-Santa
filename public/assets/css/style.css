@@ -39,9 +39,15 @@ body {
   background-color: rgba(255, 255, 255, 0.65);
 }
 
+.title {
+  font-family: 'Mountains of Christmas', serif;
+}
+
+
 .navbar-title {
   font-family: 'Mountains of Christmas', serif;
-  font-size: 35px;
+  font-size: 45px;
+  font-weight: 500;
 }
 
 footer {
