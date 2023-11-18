@@ -50,6 +50,10 @@ body {
   font-weight: 500;
 }
 
+.group-modal-title {
+  font-family: 'Mountains of Christmas', serif;
+}
+
 footer {
   background-color: white;
 }
