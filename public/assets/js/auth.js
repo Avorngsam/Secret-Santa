@@ -1,4 +1,5 @@
 // Initialize the FirebaseUI Widget using Firebase.
+const db = firebase.firestore();
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
 var currentUser;
@@ -16,14 +17,17 @@ ui.start('#firebaseui-auth-container', {
 });
 
 firebase.auth().onAuthStateChanged((user) => {
-  console.log(user)
+  // console.log(user)
 
   if (user) {
+    let email=user.email;
+    document.querySelector("#displayEmail").innerHTML = email;
     document.querySelector("#firebaseui-auth-container").classList.add('is-hidden')
     document.querySelector("#button-signin").classList.add('is-hidden')
     document.querySelector("#button-signup").classList.add('is-hidden')
     document.querySelector("#button-account").classList.remove('is-hidden')
     currentUser = user;
+
   }
 
   var signOut = document.getElementById('sign-out')

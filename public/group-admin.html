@@ -72,15 +72,15 @@
       </footer>
     </div>
 
+    <!--modals-->
   </div>
-
-  <div class="modal" id="create-group-modal">
+  <div class="modal" id="create-participant-modal">
     <div class="modal-background"></div>
     <div class="modal-content box">
-      <h1 class="group-modal-title content is-medium has-text-black is-size-3">Enter your Groups Name below! Click submit to create a group!</h1>
-      <input class="input is-success" type="text" placeholder="Group Name" id="group-name-input">
+      <h1 class="group-modal-title content is-medium has-text-black is-size-3">Add Participant</h1>
+      <input class="input is-success" type="text" placeholder="Name" id="participant-name-input">
       <div class="control">
-        <a class="button is-success" id="group-name-submit">
+        <a class="button is-success" id="participant-name-submit">
           Submit
         </a>
       </div>
@@ -148,71 +148,80 @@
   <main class="container hero is-fullheight">
     <div class="section">
       <div class="title has-text-weight-medium">
-        <p class="is-size-3">Welcome to Secret Santa!</p>
+        <p class="is-size-3" id="groupDisplay">Group</p>
       </div>
       <div class="subtitle has-text-black is-size-5">
-        <div class="content">A simple app to coordinate a gift exchange!</div>
+        <!-- <div class="content">Participants</div> -->
 
         <div class="" style="border: none;box-shadow: none">
-          <p class="has-text-black is-size-5">Your Groups</p>
-          <p class="has-text-black is-size-7" id="display-groups">You currently have no groups</p>
-          <a class="button is-success is-light js-modal-trigger " id="create-group" data-target="create-group-modal"> +
-            Create New Group
-            
+          <!-- Participant List -->
+          <p class="has-text-black is-size-5" id="participantDisplay"> Participants</p>
+
+          <p class="has-text-black is-size-7" id="no-participants">You currently have no participants</p>
+
+          <div class="columns">
+
+            <div class="column">
+              <table class="table is-bordered is-striped" id="participant-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Recipient</th>
+                    <th>Secret Santa</th>
+                  </tr>
+                </thead>
+                <!-- <tr> data gets generated here </tr> -->
+              </table>
+            </div>
+
+            <div class="column is-hidden" id="exclusion-column">
+              <table class="table is-bordered is-striped" id="exclusions-table">
+                <thead>
+                  <tr>
+                    <th>is Excluded?</th>
+                    <th>Name</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+          </div>
+
+
+
+
+
+          <a class="button is-success is-light js-modal-trigger" id="addParticipant"
+            data-target="create-participant-modal"> +
+            Add Participant
+          </a>
+
+        </div>
+      </div>
+
+
+      <button type="submit" class="button is-medium is-primary is-rounded" id="giftees-assign">Assign Giftees</button>
+
+      
+      <h2 class="heading mt-5">Sharable Link</h2> 
+
+      <div class="field has-addons">
+        <div class="control">
+          <input class="input" type="text" placeholder="Sharable Link" id="copy-text" readonly>
+        </div>
+        <div class="control">
+          <a class="button is-info" id="copy-link">
+            Copy
           </a>
         </div>
       </div>
-    </div>
-
 
     </div>
 
-    <!--
-    <section class="section">
-      <h2 class="has-text-black is-size-4">Create your group here!</h2>
-      <p class="has-text-black">Follow the steps down below!</p>
-      <div class="col-12 col-lg-6 bg-dark p-3 mb-3">
-        <div class="form-container">
-          <form id="pizza-form">
-            <div class="mb-2">
-              <label for="pizza-name" class="has-text-black form-label">Santas Name Here (organizer)</label>
-              <input class="input is-normal" type="text" placeholder="Your Name">
-            </div>
-            <div class="mb-2">
-              <label for="pizza-name" class="has-text-black form-label">Little Santas (participants)</label>
-              <input class="input is-normal" type="text" placeholder="Little Santa 1" required />
-              <input class="input is-normal" type="text" placeholder="Little Santa 2" required />
-              <input class="input is-normal" type="text" placeholder="Little Santa 3" required />
-              <input class="input is-normal" type="text" placeholder="Little Santa 3" required />
-              <div class="buttons are-small">
-                <input class="button" type="submit" value="add another santa">
-                <input class="button" type="reset" value="clear all">
-              </div>
-              <label for="pizza-name" class="has-text-black form-label">Set Exclusions (optional)</label>
-              <div class="control">
-                <label class="radio">
-                  <input type="radio" name="yes">
-                  Yes!
-                </label>
-                <label class="radio">
-                  <input type="radio" name="no">
-                  No Ty!
-                </label>
-              </div>
-            </div>
-            <div class="field">
-              <label for="pizza-name" class="has-text-black form-label">Email</label>
-              <input class="input is-normal" type="text" placeholder="email@gmail.com" required />
-            </div>
+    </div>
 
-            <button type="submit" class="btn w-100 m-auto" id="button-submit">Send it to Santa!</button>
-          </form>
-        </div>
-    </section>
-  -->
+
 
   </main>
-
 
   <!--footer -->
   <footer class="as-text-centered is-flex-align-items-flex-end mt-auto">
@@ -229,9 +238,8 @@
 
   <script src="./assets/js/idgen.js"></script>
   <script src="./assets/js/modal.js"></script>
-  <script src="./assets/js/script.js"></script>
   <script src="./assets/js/auth.js"></script>
-  <!-- <script src="./assets/js/data.js"></script> -->
+  <script src="./assets/js/adminScript.js"></script>
 
 </body>
 
