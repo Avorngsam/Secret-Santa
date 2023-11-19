@@ -269,4 +269,4 @@ function RandomizeAssignments() {
     })
 }
 
-document.querySelector("#copy-text").innerHTML = `https://secret-santa-378203.web.app/your-giftee?id=${id}`
+document.querySelector("#copy-text").value = `https://secret-santa-378203.web.app/your-giftee?id=${id}`
