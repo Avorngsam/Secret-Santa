@@ -13,8 +13,6 @@ firebase.auth().onAuthStateChanged((user) => {
         console.log(doc.id, " => ", doc.data());
         let data = doc.data();
         console.log(data);
-        
-
 
         groups.push(doc.data().displayName);
         document.querySelector("#display-groups").innerHTML += `<a href="./group-admin.html?id=${doc.data().id}" >${doc.data().displayName}</a><br>`
