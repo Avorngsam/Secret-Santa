@@ -25,8 +25,8 @@ document.querySelector("#secretSantaButton").addEventListener("click", async fun
 
     checkingArray.forEach(check => {//loops through firebased filled in array
         if (userInput.toLowerCase() === check.name.toLowerCase()) { //checks user input with object database name
-            userSecretSantaID = check.secretSanta; //pulls ID from correlated name
-            secretSantaArray.forEach(santas => { //second comparison array to check matching secret santa ID
+            userSecretSantaID = check.recipient; //pulls receiptant/giftees ID from correlated name
+            secretSantaArray.forEach(santas => { //second comparison array to check matching secret santa receiptant/giftees ID
 
                 if (userSecretSantaID === santas.id) { //outputs secret santa name and stops 
                     document.querySelector("#secretSantaResult").innerHTML = '<strong>' +santas.name +'</strong>';
