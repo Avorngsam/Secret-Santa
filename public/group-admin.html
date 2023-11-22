@@ -208,10 +208,11 @@
         <div class="control is-expanded">
           <input class="input " type="text" placeholder="Sharable Link" id="copy-text" readonly>
         </div>
-        <div class="control">
-          <a class="button is-info" id="copy-link">
+        <div class="control tooltip">
+          <button class="button is-info" id="copy-link" onclick="copyClipboardFunction()" onmouseout="outFuncClipboard()">
+            <span class="tooltiptext" id="myTooltip"></span>
             Copy
-          </a>
+          </button>
         </div>
       </div>
 

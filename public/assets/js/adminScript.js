@@ -270,3 +270,21 @@ function RandomizeAssignments() {
 }
 
 document.querySelector("#copy-text").value = `https://secret-santa-378203.web.app/your-giftee?id=${id}`
+
+//copy link function
+function copyClipboardFunction() {    
+    // Get the text field
+    var copyText = document.getElementById("copy-text");
+    // Select the text field
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);// For mobile devices
+    navigator.clipboard.writeText(copyText.value);
+    
+    var tooltip = document.getElementById("myTooltip");
+    tooltip.innerHTML = "Copied link!";
+  }
+
+  function outFuncClipboard() {
+    var tooltip = document.getElementById("myTooltip");
+    tooltip.innerHTML = "Copy to clipboard";
+  }
