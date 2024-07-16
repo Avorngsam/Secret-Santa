@@ -1,8 +1,11 @@
 
 const groups = [];
 
+//upon login it should assign preexisting groups
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
+    console.log("Am I Here?");
+    console.log(user.uid);
 
     document.querySelector("#display-groups").innerHTML = "";
     //only load cards i am authorized on
