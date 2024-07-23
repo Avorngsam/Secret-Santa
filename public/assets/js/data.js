@@ -1,4 +1,5 @@
 //on sign in load all groups
+
 function onSignIn() {
     const q = query(collection(db, "groups"), where("owner", "==", currentUser.uid));
   

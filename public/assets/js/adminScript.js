@@ -183,6 +183,7 @@ document.querySelector("#participant-name-submit").addEventListener("click", fun
         exclusions: [],
         recipient: null,
         secretSanta: null,
+        birthDay: null,
     })
     // Update firebase with our new partipant array
     groupRef.update({
@@ -206,9 +207,6 @@ document.querySelector("#participant-name-submit").addEventListener("click", fun
 })
 
 document.querySelector("#giftees-assign").addEventListener("click", function () {
-
-
-
 
     let success = false;
     let runloops = 0

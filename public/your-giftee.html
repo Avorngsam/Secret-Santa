@@ -150,11 +150,16 @@
     <main class="container hero is-fullheight">
         <div class="section">
             <div class="title has-text-weight-medium">
-                <p class="is-size-3">Group:</p>
+                <p class="is-size-3" id="gifteeGroupDisplay">Group:</p>
             </div>
+            <!--Interacts with "assignment.js"-->
             <div class="subtitle has-text-black is-size-5">
                 <div class="content">What is your name:</div>
-                <input class="input" type="text" placeholder="Name" id="userInput">
+                <input class="input" type="text" placeholder="Name" id="userInputName">
+
+                <div class="content is is-hidden">What is your birthday?:</div> <!--added and hidden to confirm birthday upon wanting to edit to add user wishlist-->
+                <input class="input" type="text" placeholder="Name" id="userInputBD">
+
                 <button class="enter-btn button is-success" id="secretSantaButton">Enter</button>
 
             </div>
@@ -188,9 +193,10 @@
 
     <script src="./assets/js/idgen.js"></script>
     <script src="./assets/js/modal.js"></script>
-    <script src="./assets/js/script.js"></script>
     <script src="./assets/js/auth.js"></script>
+    <script src="./assets/js/script.js"></script>
     <script src="./assets/js/assignment.js"></script>
+    <script src="./assets/js/gifteeScript.js"></script>
     <!-- <script src="./assets/js/data.js"></script> -->
 
 </body>

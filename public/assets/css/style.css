@@ -107,3 +107,7 @@ footer {
   visibility: visible;
   opacity: 1;
 }
+
+.buttonSpacer{
+  margin: 4px 0px 10px 8px;
+}

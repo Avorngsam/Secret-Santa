@@ -21,7 +21,7 @@ db.collection("groups").doc(id)
 
 //event listener that displays the your secret santa when entering the name 
 document.querySelector("#secretSantaButton").addEventListener("click", async function () {
-    userInput = document.querySelector("#userInput").value; //gets user input
+    userInput = document.querySelector("#userInputName").value; //gets user input
 
     checkingArray.forEach(check => {//loops through firebased filled in array
         if (userInput.toLowerCase().trim() === check.name.toLowerCase()) { //checks post formated user input with object database name
