@@ -184,6 +184,7 @@ document.querySelector("#participant-name-submit").addEventListener("click", fun
         recipient: null,
         secretSanta: null,
         birthDay: null,
+        wishList: [],
     })
     // Update firebase with our new partipant array
     groupRef.update({

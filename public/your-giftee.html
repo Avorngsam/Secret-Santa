@@ -155,13 +155,35 @@
             <!--Interacts with "assignment.js"-->
             <div class="subtitle has-text-black is-size-5">
                 <div class="content">What is your name:</div>
-                <input class="input" type="text" placeholder="Name" id="userInputName">
+                <input class="input" type="text" placeholder="Name" id="userInputName" style="width: 20%"><br><br>
 
-                <div class="content is is-hidden">What is your birthday?:</div> <!--added and hidden to confirm birthday upon wanting to edit to add user wishlist-->
-                <input class="input" type="text" placeholder="Name" id="userInputBD">
+                <div class="content is-hidden" id="bdQuestion">Enter birthdate to edit wishlist settings:</div> <!--added and hidden to confirm birthday upon wanting to edit to add user wishlist-->
+                <input class="input is-hidden" type="date" placeholder="Birthday" id="userInputBD" style="width: 15%"><br><br>
+                <div>
+                    <button class="enter-btn button is-success" id="secretSantaButton">Enter</button>
+                    <button class="button is-danger is-hidden" id="bdConfirmation"> Confirm </button>
+                </div>
 
-                <button class="enter-btn button is-success" id="secretSantaButton">Enter</button>
+                <div class="is-hidden has-background-danger-light has-text-danger" id="invalidBDConfirmation" style="width: 30%">Invalid Birthday Confirmation</div>
+                <div class="is-hidden" id="wishList">
 
+                    <p>Enter Item Name:</p>
+                    <input class="input" type="text" placeholder="Item" id="itemName" style="width: 20%"> <br>
+                    <p>Enter Item Link</p>
+                    <input class="input" type="text" placeholder="Item Link" id="itemLink" style="width: 50%"> <br>
+                    <button class= "button is-success" id="itemAdd">Add (+)</button><br><br>
+
+                    <!--General format of wishlist table display-->
+                    <table class="table is-bordered is-striped" id="wishList-table">
+                        <thead>
+                            <tr>
+                                <th>Item Name</th>
+                                <th>Link</th>
+                            </tr>
+                        </thead>
+                    </table>
+
+                </div>
             </div>
             <div class="box">
                 You are a Secret Santa for...
