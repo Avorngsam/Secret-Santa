@@ -7,7 +7,7 @@ firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     // console.log(user.uid);
 
-    document.querySelector("#display-groups").innerHTML = " ";
+    document.querySelector("#display-groups").innerHTML= " ";
     //only load cards i am authorized on
     let myGroupsRef = db.collection("groups").where("owner", "==", user.uid) //pulls from authorized DB where authenticated user == user.id groups
     myGroupsRef.get().then((querySnapshot) => {
