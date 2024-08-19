@@ -11,8 +11,8 @@ var participantArray;
 var groupRef = db.collection("groups").doc(id);
 
 
-var participantTable = document.querySelector("#participant-table")
-var exclusionTable = document.querySelector("#exclusions-table")
+var participantTable = document.querySelector("#participant-table");
+var exclusionTable = document.querySelector("#exclusions-table");
 
 var selectedParticipantId;
 
@@ -183,6 +183,8 @@ document.querySelector("#participant-name-submit").addEventListener("click", fun
         exclusions: [],
         recipient: null,
         secretSanta: null,
+        birthDay: null,
+        wishList: [],
     })
     // Update firebase with our new partipant array
     groupRef.update({
@@ -206,9 +208,6 @@ document.querySelector("#participant-name-submit").addEventListener("click", fun
 })
 
 document.querySelector("#giftees-assign").addEventListener("click", function () {
-
-
-
 
     let success = false;
     let runloops = 0

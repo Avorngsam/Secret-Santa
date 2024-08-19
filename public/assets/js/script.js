@@ -1,12 +1,15 @@
 
 const groups = [];
 
+
+//upon login it should assign preexisting groups
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
+    // console.log(user.uid);
 
-    document.querySelector("#display-groups").innerHTML = "";
+    document.querySelector("#display-groups").innerHTML= " ";
     //only load cards i am authorized on
-    let myGroupsRef = db.collection("groups").where("owner", "==", user.uid)
+    let myGroupsRef = db.collection("groups").where("owner", "==", user.uid) //pulls from authorized DB where authenticated user == user.id groups
     myGroupsRef.get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
@@ -15,7 +18,8 @@ firebase.auth().onAuthStateChanged((user) => {
         console.log(data);
 
         groups.push(doc.data().displayName);
-        document.querySelector("#display-groups").innerHTML += `<a href="./group-admin.html?id=${doc.data().id}" >${doc.data().displayName}</a><br>`
+        document.querySelector("#display-groups").innerHTML += `<a class="button is-small is-danger is-outlined buttonSpacer" href="./group-admin.html?id=${doc.data().id}" >${doc.data().displayName}</a>
+        <br>`
       })
 
 
@@ -23,7 +27,7 @@ firebase.auth().onAuthStateChanged((user) => {
   }
 });
 
-
+//creates/registers SecretSanta Group
 document.querySelector("#group-name-submit").addEventListener("click", async function () {
   document.getElementById("group-name-submit").innerHTML = "Registered!"
 
@@ -37,7 +41,7 @@ document.querySelector("#group-name-submit").addEventListener("click", async fun
     participants: [],
     posts: null
 })
-.then(() => {
+.then(() => { //redirects to a new page for admin control for exclusions
   window.location.replace(`./group-admin.html?id=${groupID}`);
   console.log("Document successfully written!");
 })
@@ -49,7 +53,6 @@ document.querySelector("#group-name-submit").addEventListener("click", async fun
   document.getElementById("group-name-input").value = "";
 
 })
-
 
 
 /*

@@ -1,26 +1,31 @@
 // Initialize the FirebaseUI Widget using Firebase.
-const db = firebase.firestore();
-var ui = new firebaseui.auth.AuthUI(firebase.auth());
-
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 var currentUser;
-//test
-ui.start('#firebaseui-auth-container', {
-  signInOptions: [
-    // List of OAuth providers supported.
-    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    //   firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-    //   firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-    //   firebase.auth.GithubAuthProvider.PROVIDER_ID
-  ],
-  // Other config options...
-  signInSuccessUrl: 'index.html',
+const db = firebase.firestore();//initialized firestore Database
+
+document.getElementById("button-signin").addEventListener("click", async () => {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  try {
+    const result = await firebase.auth().signInWithPopup(provider);
+    console.log(result.user);
+
+    if (result.user) {
+      let email = result.user.email;
+      console.log(email);
+
+    }
+
+  } catch (error) {
+    console.error(error);
+  }
 });
 
-firebase.auth().onAuthStateChanged((user) => {
-  // console.log(user)
 
+
+firebase.auth().onAuthStateChanged((user) => {
+  // console.log(user);
   if (user) {
-    let email=user.email;
+    let email = user.email;
     document.querySelector("#displayEmail").innerHTML = email;
     document.querySelector("#firebaseui-auth-container").classList.add('is-hidden')
     document.querySelector("#button-signin").classList.add('is-hidden')
@@ -40,18 +45,30 @@ firebase.auth().onAuthStateChanged((user) => {
 
       }).catch((error) => {
         // An error happened.
-
       });
     }
-
   }
-
 })
 
+//OG Method
+// const db = firebase.firestore();
+// var ui = new firebaseui.auth.AuthUI(firebase.auth());
+// var currentUser;
 
-document.querySelector("#button-signin").addEventListener("click", async function () {
+// ui.start('#firebaseui-auth-container', {
+//   signInOptions: [
+//     // List of OAuth providers supported.
+//     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+//     //   firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+//     //   firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+//     //   firebase.auth.GithubAuthProvider.PROVIDER_ID
+//   ],
+//   // Other config options...
+//   signInSuccessUrl: 'index.html',
+// });
 
-  document.getElementById("modal-signin").classList.add('is-active')
 
 
-})
+// document.querySelector("#button-signin").addEventListener("click", async function () {
+//   document.getElementById("modal-signin").classList.add('is-active')
+// })

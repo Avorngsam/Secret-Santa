@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
- <!--test push-->
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,13 +17,13 @@
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 
-  <!-- firebase scripts -->
+  <!-- firebase scripts that are being imported-->
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
+
   <script>
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     const firebaseConfig = {
       apiKey: "AIzaSyAGCgrlke8VVFKkzoRBrrJ1QKfQtyZBJJE",
       authDomain: "secret-santa-378203.firebaseapp.com",
@@ -36,9 +36,9 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
-  </script>
-  <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
 
+
+  </script>
 
   <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />
@@ -77,7 +77,8 @@
   <div class="modal" id="create-group-modal">
     <div class="modal-background"></div>
     <div class="modal-content box">
-      <h1 class="group-modal-title content is-medium has-text-black is-size-3">Enter your Groups Name below! Click submit to create a group!</h1>
+      <h1 class="group-modal-title content is-medium has-text-black is-size-3">Enter your Groups Name below! Click
+        submit to create a group!</h1>
       <input class="input is-success" type="text" placeholder="Group Name" id="group-name-input">
       <div class="control">
         <a class="button is-success" id="group-name-submit">
@@ -145,10 +146,10 @@
     </div>
   </nav>
 
-  <main class="container hero is-fullheight">
+  <main class="container hero is-fullheight bSpaceAdjust">
     <div class="section">
       <div class="title has-text-weight-medium">
-        <p class="is-size-3">Welcome to Secret Santa!</p>
+        <p class="is-size-3">Welcome to Secret Santa!!</p>
       </div>
       <div class="subtitle has-text-black is-size-5">
         <div class="content">A simple app to coordinate a gift exchange!</div>
@@ -158,65 +159,13 @@
           <p class="has-text-black is-size-7" id="display-groups">You currently have no groups</p>
           <a class="button is-success is-light js-modal-trigger " id="create-group" data-target="create-group-modal"> +
             Create New Group
-            
+
           </a>
         </div>
       </div>
+      
     </div>
-
-
-    </div>
-
-    <!--
-    <section class="section">
-      <h2 class="has-text-black is-size-4">Create your group here!</h2>
-      <p class="has-text-black">Follow the steps down below!</p>
-      <div class="col-12 col-lg-6 bg-dark p-3 mb-3">
-        <div class="form-container">
-          <form id="pizza-form">
-            <div class="mb-2">
-              <label for="pizza-name" class="has-text-black form-label">Santas Name Here (organizer)</label>
-              <input class="input is-normal" type="text" placeholder="Your Name">
-            </div>
-            <div class="mb-2">
-              <label for="pizza-name" class="has-text-black form-label">Little Santas (participants)</label>
-              <input class="input is-normal" type="text" placeholder="Little Santa 1" required />
-              <input class="input is-normal" type="text" placeholder="Little Santa 2" required />
-              <input class="input is-normal" type="text" placeholder="Little Santa 3" required />
-              <input class="input is-normal" type="text" placeholder="Little Santa 3" required />
-              <div class="buttons are-small">
-                <input class="button" type="submit" value="add another santa">
-                <input class="button" type="reset" value="clear all">
-              </div>
-              <label for="pizza-name" class="has-text-black form-label">Set Exclusions (optional)</label>
-              <div class="control">
-                <label class="radio">
-                  <input type="radio" name="yes">
-                  Yes!
-                </label>
-                <label class="radio">
-                  <input type="radio" name="no">
-                  No Ty!
-                </label>
-              </div>
-            </div>
-            <div class="field">
-              <label for="pizza-name" class="has-text-black form-label">Email</label>
-              <input class="input is-normal" type="text" placeholder="email@gmail.com" required />
-            </div>
-
-            <button type="submit" class="btn w-100 m-auto" id="button-submit">Send it to Santa!</button>
-          </form>
-        </div>
-    </section>
-  -->
-
-  </main>
-
-
-  <!--footer -->
-  <footer class="as-text-centered is-flex-align-items-flex-end mt-auto">
-    <div class="content has-text-centered is-size-4 level is-justify-content-center">
+    <div class="content has-text-centered is-size-4 level is-justify-content-center ">
       <span class="level-left mr-1">
         <p>
           <strong>Secret Santa</strong> by <a href="https://github.com/Avorngsam">Angelina Vorngsam</a> and <a
@@ -225,12 +174,14 @@
         </p>
       </span>
     </div>
-  </footer>
-
+    </div>
+  </main>
+  
   <script src="./assets/js/idgen.js"></script>
   <script src="./assets/js/modal.js"></script>
-  <script src="./assets/js/script.js"></script>
   <script src="./assets/js/auth.js"></script>
+  <script src="./assets/js/script.js"></script>
+
   <!-- <script src="./assets/js/data.js"></script> -->
 
 </body>
