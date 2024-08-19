@@ -11,8 +11,8 @@ var participantArray;
 var groupRef = db.collection("groups").doc(id);
 
 
-var participantTable = document.querySelector("#participant-table")
-var exclusionTable = document.querySelector("#exclusions-table")
+var participantTable = document.querySelector("#participant-table");
+var exclusionTable = document.querySelector("#exclusions-table");
 
 var selectedParticipantId;
 
