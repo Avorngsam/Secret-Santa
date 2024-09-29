@@ -1,7 +1,5 @@
 
 const groups = [];
-
-
 //upon login it should assign preexisting groups
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
@@ -21,7 +19,6 @@ firebase.auth().onAuthStateChanged((user) => {
         document.querySelector("#display-groups").innerHTML += `<a class="button is-small is-danger is-outlined buttonSpacer" href="./group-admin.html?id=${doc.data().id}" >${doc.data().displayName}</a>
         <br>`
       })
-
 
     });
   }

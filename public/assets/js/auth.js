@@ -20,8 +20,6 @@ document.getElementById("button-signin").addEventListener("click", async () => {
   }
 });
 
-
-
 firebase.auth().onAuthStateChanged((user) => {
   // console.log(user);
   if (user) {
@@ -50,25 +48,3 @@ firebase.auth().onAuthStateChanged((user) => {
   }
 })
 
-//OG Method
-// const db = firebase.firestore();
-// var ui = new firebaseui.auth.AuthUI(firebase.auth());
-// var currentUser;
-
-// ui.start('#firebaseui-auth-container', {
-//   signInOptions: [
-//     // List of OAuth providers supported.
-//     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-//     //   firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-//     //   firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-//     //   firebase.auth.GithubAuthProvider.PROVIDER_ID
-//   ],
-//   // Other config options...
-//   signInSuccessUrl: 'index.html',
-// });
-
-
-
-// document.querySelector("#button-signin").addEventListener("click", async function () {
-//   document.getElementById("modal-signin").classList.add('is-active')
-// })
