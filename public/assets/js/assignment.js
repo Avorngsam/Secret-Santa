@@ -49,7 +49,7 @@ document.querySelector("#secretSantaButton").addEventListener("click", async fun
                         var final = `<u> ${santas.name}'s Wishlisted Items:</u> <br>`;
                         for (let i of santas.wishList){
 
-                            final += `${incre}. <a href="${i.itemLink}" target="_blank">${i.itemName} </a>  <br>`;
+                            final += `${incre}. <a href="${i.itemLink}" target="_blank">${i.itemName} </a> <span> | (Description: ${i.itemDesc} )</span> <br>`;
                             incre++;
                             
                         }
@@ -118,10 +118,10 @@ var currPersonID="";
 
 //function that takes 2 inputs (item and link) and adds it to persons DB file
 document.querySelector("#itemAdd").addEventListener("click", async function () {
-    var itemName, itemLink,participantSnapshot;
+    var itemName, itemLink,participantSnapshot, itemDesc;
     itemName= document.getElementById("itemName").value;
     itemLink = document.getElementById("itemLink").value;
-    
+    itemDesc = document.getElementById("itemDesc").value;
     
     //single time not real time snapshot
     db.collection("groups").doc(id).get().then((doc) => { 
@@ -130,16 +130,18 @@ document.querySelector("#itemAdd").addEventListener("click", async function () {
 
         for (let i =0; i < participantSnapshot.length;i++){
             participantData=participantSnapshot[i];
-            if (participantData.name.toLowerCase() == nameConfirm && itemName.length >1 && itemLink.length >1){
+            if (participantData.name.toLowerCase() == nameConfirm && itemName.length >1 && itemLink.length >1 && itemDesc.length >1){
                 document.getElementById("invalidItemInput").classList.add("is-hidden");
 
                 var currentWishlist = participantData.wishList || [];
     
-                subWishList= {itemName,itemLink};
+                subWishList= {itemName,itemLink,itemDesc};
                 currentWishlist.push (subWishList);
                 participantData.wishList =currentWishlist;
                 document.getElementById("itemName").value="";
                 document.getElementById("itemLink").value="";
+                document.getElementById("itemDesc").value="";
+
                 currPersonID=participantData.id;
 
                 db.collection("groups").doc(id).update({participants:participantSnapshot});
@@ -164,6 +166,7 @@ function loadWishlist(confID){
             <thead>
                 <tr>
                     <th>Item Name</th>
+                    <th>Item Description</th>
                     <th>Link</th>
                 </tr>
             </thead>
@@ -181,7 +184,9 @@ function loadWishlist(confID){
                     newRow.classList.add("hoverable-row")
                     newRow.innerHTML=`
                         <td>${item.itemName}</td>
+                        <td>${item.itemDesc}</td>
                         <td>${item.itemLink}</td>
+
                         <td> <button class="button" data-item-id="${item.itemName}" >DELETE</button></td>
                     `
                     wlTable.appendChild(newRow);

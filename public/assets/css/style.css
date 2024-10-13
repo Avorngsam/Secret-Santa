@@ -31,12 +31,20 @@ body {
   color: var(--primary);
   line-height: 1.5;
   font-size: 16px;
-  background-image: url('../images/Christmas-Silhouette-Santa-Claus.jpg');
-  background-size: contain;
+  background-image: url('../images/d.jpg');
+  background-size: cover;
   background-repeat: no-repeat;
   background-blend-mode: normal;
-  background-position: center;
+  background-position: calc(100% - 10%) calc(100% - 15%);
+
+
+
+  object-fit: cover;
   background-color: rgba(255, 255, 255, 0.65);
+}
+
+.section {
+
 }
 
 .title {
@@ -56,6 +64,7 @@ body {
 
 footer {
   background-color: white;
+  margin-bottom: -5%;
 }
 
 
@@ -110,4 +119,10 @@ footer {
 
 .buttonSpacer{
   margin: 4px 0px 10px 8px;
+}
+
+.pageFooter{
+  background-color:#E23D28;
+  color: white;
+
 }
