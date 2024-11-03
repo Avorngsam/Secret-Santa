@@ -16,12 +16,26 @@ var wishListArray= [];
 
 var groupRef = db.collection("groups").doc(id);
 
+
+
 //populate empty comparison arrays with arrays from firebase DB
 db.collection("groups").doc(id)
     .onSnapshot((doc) => {
         checkingArray = doc.data().participants;
         secretSantaArray = doc.data().participants;
+        
+        document.getElementById("gifteeGroupDisplay").innerHTML = '<strong>' + "Group: "+ doc.data().displayName +'<strong>';
+
     })
+document.querySelector("#userInputName").addEventListener("keypress", async function () {
+    userInputCheck = document.querySelector("#userInputName").value;
+
+    checkingArray.forEach(check => {//loops through firebased filled in array
+        if (userInputCheck.toLowerCase().trim() !== check.name.toLowerCase()) {
+
+        }
+    })
+})
 
 //event listener that displays the your secret santa when entering the name 
 document.querySelector("#secretSantaButton").addEventListener("click", async function () {
@@ -38,7 +52,7 @@ document.querySelector("#secretSantaButton").addEventListener("click", async fun
 
                 if (userSecretSantaID === santas.id) { //outputs secret santa name and stops 
                     resultSS = santas.name;
-                    console.log(resultSS);
+
                     document.querySelector("#secretSantaResult").innerHTML = '<strong>' + santas.name + '</strong>';
 
                     if (santas.wishList==null || santas.wishList ==0){
@@ -78,7 +92,7 @@ document.querySelector("#secretSantaButton").addEventListener("click", async fun
 
             document.querySelector("#secretSantaResult").innerHTML = "\n <strong> Please type in a valid name or try another version of that name </strong>";
 
-
+            document.getElementById("wishListItems").innerHTML="";
             document.getElementById("userInputBD").classList.add("is-hidden"); //added class edit just in case name query is rechecked
             document.getElementById("bdQuestion").classList.add("is-hidden");
             document.getElementById("bdConfirmation").classList.add("is-hidden");
@@ -94,8 +108,6 @@ document.querySelector("#bdConfirmation").addEventListener("click", async functi
     
     var date;
     date = document.getElementById("userInputBD").value;
-    console.log(date);//ts
-    console.log(typeof (date));//ts
 
     for (let i = 0; i < checkingArray.length; i++)
         if ((userInput.toLowerCase().trim() === checkingArray[i].name.toLowerCase()) && (date == checkingArray[i].birthDay)) {
@@ -126,7 +138,7 @@ document.querySelector("#itemAdd").addEventListener("click", async function () {
     //single time not real time snapshot
     db.collection("groups").doc(id).get().then((doc) => { 
         participantSnapshot=doc.data().participants;
-        console.log(participantSnapshot);
+        //console.log(participantSnapshot);
 
         for (let i =0; i < participantSnapshot.length;i++){
             participantData=participantSnapshot[i];
@@ -172,11 +184,11 @@ function loadWishlist(confID){
             </thead>
         `
         var pData = doc.data().participants;
-        console.log(pData);
+        //console.log(pData);
 
         for (let i =0; i < pData.length;i++){
             if (pData[i].id == confID && pData[i].wishList != null && pData[i].wishList.length !== 0){
-                console.log("WL NOT NULL");
+                //console.log("WL NOT NULL");
                 document.getElementById("emptyWL").classList.add("is-hidden");
                 document.getElementById("wlTable").classList.remove("is-hidden");
                 pData[i].wishList.forEach(item =>{
@@ -185,9 +197,9 @@ function loadWishlist(confID){
                     newRow.innerHTML=`
                         <td>${item.itemName}</td>
                         <td>${item.itemDesc}</td>
-                        <td>${item.itemLink}</td>
+                        <td class="iLink">${item.itemLink}</td>
 
-                        <td> <button class="button" data-item-id="${item.itemName}" >DELETE</button></td>
+                        <td> <button class="button is-small" data-item-id="${item.itemName}" >DELETE</button></td>
                     `
                     wlTable.appendChild(newRow);
 

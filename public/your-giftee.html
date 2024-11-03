@@ -148,32 +148,32 @@
     </nav>
 
     <main class="container hero is-fullheight">
-        <div class="section">
+        <div class="section formSettings" >
             <div class="title has-text-weight-medium">
                 <p class="is-size-3" id="gifteeGroupDisplay">Group:</p>
             </div>
             <!--Interacts with "assignment.js"-->
             <div class="subtitle has-text-black is-size-5">
                 <div class="content">What is your name:</div>
-                <input class="input" type="text" placeholder="Name" id="userInputName" style="width: 25%"><br><br>
+                <input class="input is-normal" type="text" placeholder="First and Last Name" id="userInputName" style="width: 200px"><br>
                 <button class="enter-btn button is-success" id="secretSantaButton">Enter</button>
 
                 <div id="bdBox">
                     <div class="content is-hidden" id="bdQuestion">Enter birthdate to edit wishlist settings:</div> <!--added and hidden to confirm birthday upon wanting to edit to add user wishlist-->
-                    <input class="input is-hidden" type="date" placeholder="Birthday" id="userInputBD" style="width: 15%"> <button class="button is-danger is-hidden" id="bdConfirmation"> Confirm </button><br><br>
+                    <input class="input is-hidden" type="date" inputmode="numeric" placeholder="MM/DD/YYYY" id="userInputBD" style="width: 150px"> <button class="button is-danger is-hidden" id="bdConfirmation"> Confirm </button><br><br>
                 </div>
                 
-                <div class="is-hidden has-background-danger-light has-text-danger" id="invalidBDConfirmation" style="width: 30%">Invalid Birthday Confirmation</div>
+                <div class="is-hidden has-background-danger-light has-text-danger" id="invalidBDConfirmation" style="width: 300px">Invalid Birthday Confirmation or Format</div>
 
-                <div class="is-hidden" id="wishList">
+                <div class="is-hidden box" id="wishList">
                     <p>Enter Item Name:</p>
-                    <input class="input" type="text" placeholder="Item" id="itemName" style="width: 20%"> <br>
+                    <input class="input" type="text" placeholder="Item" id="itemName" style="width: 200px"> <br>
 
                     <p>Enter Item Description:</p>
-                    <input class="input" type="text" placeholder="Example. Color: Pink, Size: 9" id="itemDesc" style="width: 50%" minlength="1"> 
+                    <input class="input" type="text" placeholder="Example. Color: Pink, Size: 9" id="itemDesc" style="width: 250px" minlength="1"> 
 
                     <p>Enter Item Link:</p>
-                    <input class="input" type="text" placeholder="Item Link" id="itemLink" style="width: 50%"> 
+                    <input class="input" type="text" placeholder="Item Link" id="itemLink" style="width: 400px"> 
                     <div class="is-hidden has-background-danger-light has-text-danger" id= "invalidItemInput">Invalid input please enter an item name, item description, and item link!</div> 
                     <br>
                     <button class= "button is-success" id="itemAdd">Add (+)</button><br><br>

@@ -126,3 +126,23 @@ footer {
   color: white;
 
 }
+
+.formSettings{
+  background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+  padding: 20px;
+}
+
+th, td {
+  max-width: 25%;
+  font-size: 10px; /* Font size */
+  padding: 5px; /* Padding */
+  font-weight: normal; /* Font weight */
+  width: 25%;
+
+}
+
+
+.iLink{
+  font-size: 4px;
+  overflow-x: auto; /* Enable horizontal scrolling */
+}
