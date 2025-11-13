@@ -39,34 +39,72 @@
     </script>
     <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
 
-        <!--Audio Player functionality background-->
-    <audio id="player"></audio>
+    <!--Audio Player functionality background-->
+    <audio id="player"> </audio>
 
-    <button onclick="loadAndPlay()">Play Music</button>
+    <!--toggle buttons for audio-->
+    <button id="playBtn">▶️ </button>
+    <button id="toggleBtn" style="display:none;">⏸️</button>
+
 
     <script>//BG music player
-
-        var playList = ["/BGMusic/song1.mp3"];
-        let current = 0;
+        const playBtn = document.getElementById('playBtn');
+        const toggleBtn = document.getElementById('toggleBtn');
         const player = document.getElementById("player");
+        const userInput = document.getElementById("userInputName");
 
-        function loadAndPlay(index){
-        player.src = playList[index];
-        player.play();
-        }
-        loadAndPlay(current);
+        // Playlist add more to playlist var
+        var playList = ["assets/BGMusic/song1.mp3"];
+        let current = 0;
+        let musicStarted = false; // track if music has started
 
-        player.addEventListener ("ended", ()=> {
-        current++;
-        if (current <playList.length){
-            loadAndPlay(current);
+        // Load and play a song
+        function loadAndPlay(index) {
+            player.src = playList[index];
+            player.load();
+            player.play().catch(() => {
+                console.log('User interaction required to play audio.');
+            });
+            musicStarted = true; // mark as started
+            playBtn.style.display = 'none';
+            toggleBtn.style.display = 'inline';
         }
-        else {
-            current = 0;
-            loadAndPlay(current);
-        }
+
+        // First click on play button
+        playBtn.addEventListener('click', () => {
+            if (!musicStarted) loadAndPlay(current);
         });
-    </script>
+
+        // Toggle play/pause button
+        toggleBtn.addEventListener('click', () => {
+            if (player.paused) {
+                player.play();
+                toggleBtn.textContent = '⏸️';
+            } else {
+                player.pause();
+                toggleBtn.textContent = '▶️';
+            }
+        });
+
+        // Auto-play next song/loop back function
+        player.addEventListener("ended", () => {
+            current++;
+            if (current >= playList.length) current = 0;
+            loadAndPlay(current);
+        });
+
+        //start music on any website user interaction
+        function startMusicOnInteraction() {
+            if (!musicStarted) {
+                loadAndPlay(current);
+            }
+        }
+        // Events that count as user interaction
+        document.addEventListener('click', startMusicOnInteraction);
+        document.addEventListener('keydown', startMusicOnInteraction);
+        document.addEventListener('focus', startMusicOnInteraction, true); // input focus
+
+</script>
 
 
     <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
