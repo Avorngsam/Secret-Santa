@@ -51,6 +51,19 @@ body {
   font-family: 'Mountains of Christmas', serif;
 }
 
+.navbar a.navbar-item {
+    color: #ffffff; /* black text for visibility */
+}
+
+.navbar {
+    --bulma-navbar-background-color: #ffffff; /* white background */
+    --bulma-navbar-h: var(--bulma-scheme-h);
+    --bulma-navbar-s: var(--bulma-scheme-s);
+    --bulma-navbar-l: var(--bulma-scheme-main-l);
+    --bulma-navbar-box-shadow-size: 0 0.125em 0 0;
+    --bulma-navbar-box-shadow-color: var(--bulma-background);
+}
+
 
 .navbar-title {
   font-family: 'Mountains of Christmas', serif;
